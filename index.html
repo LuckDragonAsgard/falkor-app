@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0a0e1a">
+<title>FALKOR</title>
+<style>body{background:#0a0e1a;color:#e2e8f0;font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;margin:0}.loader{text-align:center}.logo{font-size:2rem;font-weight:900;letter-spacing:6px;background:linear-gradient(135deg,#00b4ff,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.sub{font-size:.8rem;color:#64748b;margin-top:8px}@keyframes p{0%,100%{opacity:.3}50%{opacity:1}}.dot{animation:p 1.5s infinite}</style>
+</head>
+<body>
+<div class="loader"><div class="logo">FALKOR</div><div class="sub"><span class="dot">Loading systems</span>...</div></div>
+<script>
+fetch('https://oaucfjiairycnzyqvuty.supabase.co/rest/v1/falkor_pages?slug=eq.index&select=content',{
+  headers:{'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9hdWNmamlhaXJ5Y256eXF2dXR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0NjYyMjYsImV4cCI6MjA5MDA0MjIyNn0.-24bC0QmYtTZXYwIW7SrqceEOuVnoLHSsgT8AIWmOYU'}
+}).then(r=>r.json()).then(d=>{if(d&&d[0]){document.open();document.write(d[0].content);document.close()}}).catch(e=>{document.querySelector('.sub').textContent='Connection issue \u2014 try refreshing.'});
+</script>
+</body>
+</html>
